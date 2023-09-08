@@ -1,6 +1,53 @@
+import golosinas.*
+import mariano.*
 
-test "testX" {
+//mariano
 
-	assert.that(true)
-
-}
+ test "mariano compra un chocolatin, un caramelo y un bombon y la cantidad de golosinas en la bolsa son 3" {
+ 	mariano.comprar(chocolate)
+ 	mariano.comprar(caramelo)
+ 	mariano.comprar(bombon)
+ 	assert.equals(3, mariano.cantidadDeGolosinas())
+ }
+ 
+ test "mariano compra un chocolatin, un caramelo y un bombon y tiene la golosina caramelo" {
+ 	mariano.comprar(chocolate)
+ 	mariano.comprar(caramelo)
+ 	mariano.comprar(bombon)
+ 	assert.that(mariano.tieneLaGolosina(caramelo))
+ }
+ 
+ test "mariano compra un chocolatin, un caramelo y un bombon y no tiene la golosina oblea" {
+ 	mariano.comprar(chocolate)
+ 	mariano.comprar(caramelo)
+ 	mariano.comprar(bombon)
+ 	assert.notThat(mariano.tieneLaGolosina(oblea))
+ }
+ 
+ test "mariano compra un chocolatin, un caramelo y un bombon y tiene al menos uno libre de gluten" {
+ 	mariano.comprar(chocolate)
+ 	mariano.comprar(caramelo)
+ 	mariano.comprar(bombon)
+ 	assert.that(mariano.hayGolosinaSinTACC())
+ }
+ 
+ test "mariano compra un chocolatin, un caramelo y un bombon y son todos precios cuidados" {
+ 	mariano.comprar(chocolate)
+ 	mariano.comprar(caramelo)
+ 	mariano.comprar(bombon)
+ 	assert.that(mariano.preciosCuidados())
+ }
+ 
+ test "mariano compra un chocolatin, un caramelo y un bombon y tiene una golosina sabor chocolate" {
+ 	mariano.comprar(chocolate)
+ 	mariano.comprar(caramelo)
+ 	mariano.comprar(bombon)
+ 	assert.that(mariano.golosinaDeSabor("chocolate"))
+ }
+ 
+ test "mariano compra un chocolatin, un caramelo y un bombon y no todas tienen el mismo sabor frutilla" {
+ 	mariano.comprar(chocolate)
+ 	mariano.comprar(caramelo)
+ 	mariano.comprar(bombon)
+ 	assert.notThat(mariano.golosinasDeSabor("frutilla"))
+ }

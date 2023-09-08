@@ -1,6 +1,226 @@
+import golosinas.*
 
-test "testX" {
+//bombon
+test "el peso inicial de bombon es de 15 gramos" {
+	assert.equals(15, bombon.peso())
+}
 
-	assert.that(true)
+test "el precio inicial de bombon es de 5 pesos" {
+	assert.equals(5, bombon.precio())
+}
 
+test "el gusto inicial de bombon es frutilla" {
+	assert.equals("frutilla", bombon.gusto())
+}
+
+test "el bombon es libre de gluten" {
+	assert.that(bombon.libreDeGluten())
+}
+
+//alfajor
+test "el peso inicial del alfajor es de 300 gramos" {
+	assert.equals(300, alfajor.peso())
+}
+
+test "el precio inicial del alfajor es de 12 pesos" {
+	assert.equals(12, alfajor.precio())
+}
+
+test "el gusto inicial del alfajor es chocolate" {
+	assert.equals("chocolate", alfajor.gusto())
+}
+
+test "el alfajor no es libre de gluten" {
+	assert.notThat(alfajor.libreDeGluten())
+}
+
+//caramelo
+test "el peso inicial del caramelo es de 5 gramos" {
+	assert.equals(5, caramelo.peso())
+}
+
+test "el precio inicial del caramelo es de 1 pesos" {
+	assert.equals(1, caramelo.precio())
+}
+
+test "el gusto inicial del caramelo es frutilla" {
+	assert.equals("frutilla", caramelo.gusto())
+}
+
+test "el caramelo es libre de gluten" {
+	assert.that(caramelo.libreDeGluten())
+}
+
+//chupetin
+test "el peso inicial del chupetin es de 7 gramos" {
+	assert.equals(7, chupetin.peso())
+}
+
+test "el precio inicial del chupetin es de 2 pesos" {
+	assert.equals(2, chupetin.precio())
+}
+
+test "el gusto inicial del chupetin es naranja" {
+	assert.equals("naranja", chupetin.gusto())
+}
+
+test "el chupetin es libre de gluten" {
+	assert.that(chupetin.libreDeGluten())
+}
+
+//oblea
+test "el peso inicial de la oblea es de 250 gramos" {
+	assert.equals(250, oblea.peso())
+}
+
+test "el precio inicial de la oblea es de 5 pesos" {
+	assert.equals(5, oblea.precio())
+}
+
+test "el gusto inicial de la oblea es vainilla" {
+	assert.equals("vainilla", oblea.gusto())
+}
+
+test "la oblea no es libre de gluten" {
+	assert.notThat(oblea.libreDeGluten())
+}
+
+//chocolate
+test "el peso inicial del chocolate es de 40 gramos" {
+	chocolate.pesoInicial(40)
+	assert.equals(40, chocolate.peso())
+}
+
+test "el peso inicial del chocolate es de 100 gramos" {
+	chocolate.pesoInicial(100)
+	assert.equals(100, chocolate.peso())
+}
+
+test "el precio del chocolate con peso = 40 es de 20 pesos" {
+	chocolate.pesoInicial(40)
+	chocolate.calcularPrecio()
+	assert.equals(20, chocolate.precio())
+}
+
+test "el precio del chocolate con peso = 100 es de 50 pesos" {
+	chocolate.pesoInicial(100)
+	chocolate.calcularPrecio()
+	assert.equals(50, chocolate.precio())
+}
+
+test "el gusto inicial del chocolate es chocolate" {
+	assert.equals("chocolate", chocolate.gusto())
+}
+
+test "el chocolate no es libre de gluten" {
+	assert.notThat(chocolate.libreDeGluten())
+}
+
+//pastillaDeTuttiFrutti
+test "el peso inicial de la pastillaDeTuttiFrutti es de 5 gramos" {
+	assert.equals(5, pastillaDeTuttiFrutti.peso())
+}
+
+test "el precio inicial de pastillaDeTuttiFrutti es de 10 pesos" {
+	assert.equals(10, pastillaDeTuttiFrutti.precio())
+}
+
+test "el precio inicial de pastillaDeTuttiFrutti es de 7 pesos" {
+	pastillaDeTuttiFrutti.libreDeGluten(true)
+	assert.equals(7, pastillaDeTuttiFrutti.precio())
+}
+
+test "el gusto inicial de pastillaDeTuttiFrutti es frutilla" {
+	assert.equals("frutilla", pastillaDeTuttiFrutti.gusto())
+}
+
+test "la pastillaDeTuttiFrutti no es libre de gluten" {
+	assert.notThat(pastillaDeTuttiFrutti.libreDeGluten())
+}
+
+//golosina bañada
+//pastilla de tutti frutti
+test "el peso inicial de la pastilla de tutti frutti bañada es de 9 gramos" {
+	golosinaBaniada.golosinaDeBase(pastillaDeTuttiFrutti)
+	assert.equals(9, golosinaBaniada.peso())
+}
+
+test "el precio inicial de pastillaDeTuttiFrutti bañada es de 12 pesos" {
+	golosinaBaniada.golosinaDeBase(pastillaDeTuttiFrutti)
+	assert.equals(12, golosinaBaniada.precio())
+}
+
+test "el precio inicial de pastillaDeTuttiFrutti bañada es de 9 pesos" {
+	golosinaBaniada.golosinaDeBase(pastillaDeTuttiFrutti)
+	pastillaDeTuttiFrutti.libreDeGluten(true)
+	assert.equals(9, golosinaBaniada.precio())
+}
+
+test "el gusto inicial de pastilla de tutti frutti bañada es frutilla" {
+	golosinaBaniada.golosinaDeBase(pastillaDeTuttiFrutti)
+	assert.equals("frutilla", golosinaBaniada.gusto())
+}
+
+test "el pastilla de tutti frutti bañada es libre de gluten" {
+	golosinaBaniada.golosinaDeBase(pastillaDeTuttiFrutti)
+	assert.notThat(golosinaBaniada.libreDeGluten())
+}
+
+//chocolate
+
+test "el peso inicial del chocolate bañado es de 44 gramos" {
+	chocolate.pesoInicial(40)
+	golosinaBaniada.golosinaDeBase(chocolate)
+	assert.equals(44, golosinaBaniada.peso())
+}
+
+test "el peso inicial del chocolate bañado es de 104 gramos" {
+	chocolate.pesoInicial(100)
+	golosinaBaniada.golosinaDeBase(chocolate)
+	assert.equals(104, golosinaBaniada.peso())
+}
+
+test "el precio del chocolate bañado con peso = 44 es de 22 pesos" {
+	chocolate.pesoInicial(40)
+	chocolate.calcularPrecio()
+	golosinaBaniada.golosinaDeBase(chocolate)
+	assert.equals(22, golosinaBaniada.precio())
+}
+
+test "el precio del chocolate bañado con peso = 104 es de 52 pesos" {
+	chocolate.pesoInicial(100)
+	chocolate.calcularPrecio()
+	golosinaBaniada.golosinaDeBase(chocolate)
+	assert.equals(52, golosinaBaniada.precio())
+}
+
+test "el gusto inicial del chocolate bañado es chocolate" {
+	golosinaBaniada.golosinaDeBase(chocolate)
+	assert.equals("chocolate", golosinaBaniada.gusto())
+}
+
+test "el chocolate bañado no es libre de gluten" {
+	golosinaBaniada.golosinaDeBase(chocolate)
+	assert.notThat(golosinaBaniada.libreDeGluten())
+}
+
+//chupetin
+test "el peso inicial del chupetin bañado es de 11 gramos" {
+	golosinaBaniada.golosinaDeBase(chupetin)
+	assert.equals(11, golosinaBaniada.peso())
+}
+
+test "el precio inicial del chupetin bañado es de 4 pesos" {
+	golosinaBaniada.golosinaDeBase(chupetin)
+	assert.equals(4, golosinaBaniada.precio())
+}
+
+test "el gusto inicial del chupetin bañado es naranja" {
+	golosinaBaniada.golosinaDeBase(chupetin)
+	assert.equals("naranja", golosinaBaniada.gusto())
+}
+
+test "el chupetin bañado es libre de gluten" {
+	golosinaBaniada.golosinaDeBase(chupetin)
+	assert.that(golosinaBaniada.libreDeGluten())
 }
